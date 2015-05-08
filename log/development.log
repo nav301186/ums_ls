@@ -5458,3 +5458,101 @@ WHERE fk.referenced_column_name is not null
   AND fk.table_name = 'users'
 
   [1m[36m (0.1ms)[0m  [1mSHOW CREATE TABLE `users`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateDoorkeeperTables (20150507174845)
+DEPRECATION WARNING: `#timestamp` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in change at /Users/navinnegi/Sites/ums-login-service/db/migrate/20150507174845_create_doorkeeper_tables.rb:9)
+  [1m[35m (9.6ms)[0m  CREATE TABLE `oauth_applications` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255) NOT NULL, `uid` varchar(255) NOT NULL, `secret` varchar(255) NOT NULL, `redirect_uri` text NOT NULL, `scopes` varchar(255) DEFAULT '' NOT NULL, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (8.4ms)[0m  [1mCREATE UNIQUE INDEX `index_oauth_applications_on_uid`  ON `oauth_applications` (`uid`) [0m
+  [1m[35m (6.9ms)[0m  CREATE TABLE `oauth_access_grants` (`id` int(11) auto_increment PRIMARY KEY, `resource_owner_id` int(11) NOT NULL, `application_id` int(11) NOT NULL, `token` varchar(255) NOT NULL, `expires_in` int(11) NOT NULL, `redirect_uri` text NOT NULL, `created_at` datetime NOT NULL, `revoked_at` datetime, `scopes` varchar(255)) ENGINE=InnoDB
+  [1m[36m (8.4ms)[0m  [1mCREATE UNIQUE INDEX `index_oauth_access_grants_on_token`  ON `oauth_access_grants` (`token`) [0m
+  [1m[35m (6.3ms)[0m  CREATE TABLE `oauth_access_tokens` (`id` int(11) auto_increment PRIMARY KEY, `resource_owner_id` int(11), `application_id` int(11), `token` varchar(255) NOT NULL, `refresh_token` varchar(255), `expires_in` int(11), `revoked_at` datetime, `created_at` datetime NOT NULL, `scopes` varchar(255)) ENGINE=InnoDB
+  [1m[36m (7.5ms)[0m  [1mCREATE UNIQUE INDEX `index_oauth_access_tokens_on_token`  ON `oauth_access_tokens` (`token`) [0m
+  [1m[35m (6.5ms)[0m  CREATE  INDEX `index_oauth_access_tokens_on_resource_owner_id`  ON `oauth_access_tokens` (`resource_owner_id`) 
+  [1m[36m (8.2ms)[0m  [1mCREATE UNIQUE INDEX `index_oauth_access_tokens_on_refresh_token`  ON `oauth_access_tokens` (`refresh_token`) [0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20150507174845')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'umsln_development'
+  AND fk.table_name = 'oauth_access_grants'
+
+  [1m[36m (0.1ms)[0m  [1mSHOW CREATE TABLE `oauth_access_grants`[0m
+  [1m[35m (0.1ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'umsln_development'
+  AND fk.table_name = 'oauth_access_tokens'
+
+  [1m[36m (0.1ms)[0m  [1mSHOW CREATE TABLE `oauth_access_tokens`[0m
+  [1m[35m (0.1ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'umsln_development'
+  AND fk.table_name = 'oauth_applications'
+
+  [1m[36m (0.1ms)[0m  [1mSHOW CREATE TABLE `oauth_applications`[0m
+  [1m[35m (0.1ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'umsln_development'
+  AND fk.table_name = 'users'
+
+  [1m[36m (0.1ms)[0m  [1mSHOW CREATE TABLE `users`[0m
+
+
+Started GET "/oauth/applications/" for ::1 at 2015-05-08 18:10:47 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Doorkeeper::ApplicationsController#index as HTML
+  [1m[35mDoorkeeper::Application Load (0.2ms)[0m  SELECT `oauth_applications`.* FROM `oauth_applications`
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/doorkeeper-2.2.1/app/views/doorkeeper/applications/index.html.erb within layouts/doorkeeper/admin (12.9ms)
+Completed 200 OK in 140ms (Views: 138.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/doorkeeper/bootstrap.min.self-a5176189e4c5305bf3b21c622275d2a8cb9d76bdb20d045e5e00b88f5ab53a7a.css?body=1" for ::1 at 2015-05-08 18:10:48 +0530
+
+
+Started GET "/assets/doorkeeper/admin/application.self-cfff66a4afba685627650acf78030f451ab70de17e17fe00e2df47dec02f0b1d.css?body=1" for ::1 at 2015-05-08 18:10:48 +0530
+
+
+Started GET "/oauth/applications/new" for ::1 at 2015-05-08 18:10:54 +0530
+Processing by Doorkeeper::ApplicationsController#new as HTML
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/doorkeeper-2.2.1/app/views/doorkeeper/applications/_form.html.erb (11.7ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/doorkeeper-2.2.1/app/views/doorkeeper/applications/new.html.erb within layouts/doorkeeper/admin (15.7ms)
+Completed 200 OK in 25ms (Views: 21.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/oauth/applications" for ::1 at 2015-05-08 18:16:05 +0530
+Processing by Doorkeeper::ApplicationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"[FILTERED]", "doorkeeper_application"=>{"name"=>"ums", "redirect_uri"=>"localhost:3001/ums/login"}, "commit"=>"Submit"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mDoorkeeper::Application Exists (0.5ms)[0m  SELECT  1 AS one FROM `oauth_applications` WHERE `oauth_applications`.`uid` = BINARY '016d94eaf38903e1eede6a8919ae3ee08eae5ea5f74b22db4cea689c938a373f' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/doorkeeper-2.2.1/app/views/doorkeeper/applications/_form.html.erb (1.7ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/doorkeeper-2.2.1/app/views/doorkeeper/applications/new.html.erb within layouts/doorkeeper/admin (2.9ms)
+Completed 200 OK in 22ms (Views: 9.1ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/oauth/applications" for ::1 at 2015-05-08 18:25:26 +0530
+Processing by Doorkeeper::ApplicationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"[FILTERED]", "doorkeeper_application"=>{"name"=>"ums", "redirect_uri"=>"localhost:3001/ums/sign_in"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDoorkeeper::Application Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `oauth_applications` WHERE `oauth_applications`.`uid` = BINARY '207d92b6e6e7aae1e776c61fcf1d95e5c9f8cf66a981d7894b69cc1b0f441dfc' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/doorkeeper-2.2.1/app/views/doorkeeper/applications/_form.html.erb (1.1ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/doorkeeper-2.2.1/app/views/doorkeeper/applications/new.html.erb within layouts/doorkeeper/admin (2.0ms)
+Completed 200 OK in 11ms (Views: 7.7ms | ActiveRecord: 0.4ms)

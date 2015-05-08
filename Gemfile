@@ -12,7 +12,7 @@ gem 'mysql2'
 
 gem 'devise'
 gem 'responders'
-
+gem "doorkeeper"
 
 
 # To use ActiveModel has_secure_password
