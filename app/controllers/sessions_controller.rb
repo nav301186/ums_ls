@@ -5,15 +5,11 @@ class SessionsController < Devise::SessionsController
 
 
  def create
-      resource = User.find_for_database_authentication(:email => params[:user][:email])
+      resource =  User.find(doorkeeper_token.resource_owner_id) if doorkeeper_token
       return invalid_login_attempt unless resource
 
-      if resource.valid_password?(params[:user][:password])
         sign_in("user", resource)
         render :json=> {:success=>true, :email=>resource.email}
-      return
-      end
-      invalid_login_attempt
   end
 
   def destroy
