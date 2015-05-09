@@ -5556,3 +5556,914 @@ Processing by Doorkeeper::ApplicationsController#create as HTML
   Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/doorkeeper-2.2.1/app/views/doorkeeper/applications/_form.html.erb (1.1ms)
   Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/doorkeeper-2.2.1/app/views/doorkeeper/applications/new.html.erb within layouts/doorkeeper/admin (2.0ms)
 Completed 200 OK in 11ms (Views: 7.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/oauth/applications/" for ::1 at 2015-05-09 12:56:18 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (3.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Doorkeeper::ApplicationsController#index as HTML
+  [1m[35mDoorkeeper::Application Load (0.4ms)[0m  SELECT `oauth_applications`.* FROM `oauth_applications`
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/doorkeeper-2.2.1/app/views/doorkeeper/applications/index.html.erb within layouts/doorkeeper/admin (13.0ms)
+Completed 200 OK in 129ms (Views: 127.5ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/doorkeeper/admin/application.self-cfff66a4afba685627650acf78030f451ab70de17e17fe00e2df47dec02f0b1d.css?body=1" for ::1 at 2015-05-09 12:56:19 +0530
+
+
+Started GET "/assets/doorkeeper/bootstrap.min.self-a5176189e4c5305bf3b21c622275d2a8cb9d76bdb20d045e5e00b88f5ab53a7a.css?body=1" for ::1 at 2015-05-09 12:56:19 +0530
+
+
+Started GET "/oauth/applications/new" for ::1 at 2015-05-09 12:56:22 +0530
+Processing by Doorkeeper::ApplicationsController#new as HTML
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/doorkeeper-2.2.1/app/views/doorkeeper/applications/_form.html.erb (11.0ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/doorkeeper-2.2.1/app/views/doorkeeper/applications/new.html.erb within layouts/doorkeeper/admin (15.8ms)
+Completed 200 OK in 29ms (Views: 23.4ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/oauth/applications" for ::1 at 2015-05-09 12:58:29 +0530
+Processing by Doorkeeper::ApplicationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"[FILTERED]", "doorkeeper_application"=>{"name"=>"ums", "redirect_uri"=>"http://localhost:3000/ums/sign_in"}, "commit"=>"Submit"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mDoorkeeper::Application Exists (2.4ms)[0m  SELECT  1 AS one FROM `oauth_applications` WHERE `oauth_applications`.`uid` = BINARY 'b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127' LIMIT 1
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO `oauth_applications` (`name`, `redirect_uri`, `uid`, `secret`, `created_at`, `updated_at`) VALUES ('ums', 'http://localhost:3000/ums/sign_in', 'b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127', 'db54d1cb21ed0217ba9cede555b0bc45d8eb8ab2ed0ae3df27a36b7b3a73e932', '2015-05-09 07:28:29.642088', '2015-05-09 07:28:29.642088')[0m
+  [1m[35m (1.0ms)[0m  COMMIT
+Redirected to http://localhost:3000/oauth/applications/1
+Completed 302 Found in 18ms (ActiveRecord: 4.9ms)
+
+
+Started GET "/oauth/applications/1" for ::1 at 2015-05-09 12:58:29 +0530
+Processing by Doorkeeper::ApplicationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDoorkeeper::Application Load (0.3ms)[0m  [1mSELECT  `oauth_applications`.* FROM `oauth_applications` WHERE `oauth_applications`.`id` = 1 LIMIT 1[0m
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/doorkeeper-2.2.1/app/views/doorkeeper/applications/_delete_form.html.erb (1.2ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/doorkeeper-2.2.1/app/views/doorkeeper/applications/show.html.erb within layouts/doorkeeper/admin (3.9ms)
+Completed 200 OK in 16ms (Views: 10.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/oauth/applications/1/edit" for ::1 at 2015-05-09 12:59:53 +0530
+Processing by Doorkeeper::ApplicationsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mDoorkeeper::Application Load (0.3ms)[0m  SELECT  `oauth_applications`.* FROM `oauth_applications` WHERE `oauth_applications`.`id` = 1 LIMIT 1
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/doorkeeper-2.2.1/app/views/doorkeeper/applications/_form.html.erb (1.8ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/doorkeeper-2.2.1/app/views/doorkeeper/applications/edit.html.erb within layouts/doorkeeper/admin (3.3ms)
+Completed 200 OK in 11ms (Views: 10.4ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/oauth/applications/1" for ::1 at 2015-05-09 12:59:59 +0530
+Processing by Doorkeeper::ApplicationsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"[FILTERED]", "doorkeeper_application"=>{"name"=>"ums", "redirect_uri"=>"http://localhost:3001/ums/sign_in"}, "commit"=>"Submit", "id"=>"1"}
+  [1m[36mDoorkeeper::Application Load (0.2ms)[0m  [1mSELECT  `oauth_applications`.* FROM `oauth_applications` WHERE `oauth_applications`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDoorkeeper::Application Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `oauth_applications` WHERE (`oauth_applications`.`uid` = BINARY 'b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127' AND `oauth_applications`.`id` != 1) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `oauth_applications` SET `redirect_uri` = 'http://localhost:3001/ums/sign_in', `updated_at` = '2015-05-09 07:29:59.989847' WHERE `oauth_applications`.`id` = 1
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/oauth/applications/1
+Completed 302 Found in 6ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/oauth/applications/1" for ::1 at 2015-05-09 12:59:59 +0530
+Processing by Doorkeeper::ApplicationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mDoorkeeper::Application Load (0.2ms)[0m  SELECT  `oauth_applications`.* FROM `oauth_applications` WHERE `oauth_applications`.`id` = 1 LIMIT 1
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/doorkeeper-2.2.1/app/views/doorkeeper/applications/_delete_form.html.erb (0.6ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/doorkeeper-2.2.1/app/views/doorkeeper/applications/show.html.erb within layouts/doorkeeper/admin (2.9ms)
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/oauth/authorize?client_id=b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127&redirect_uri=http%3A%2F%2Flocalhost%3A3001%2Fums%2Fsign_in&response_type=code" for ::1 at 2015-05-09 13:34:29 +0530
+Processing by Doorkeeper::AuthorizationsController#new as HTML
+  Parameters: {"client_id"=>"b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127", "redirect_uri"=>"http://localhost:3001/ums/sign_in", "response_type"=>"code"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Redirected to http://localhost:3000/users/sign_in
+Filter chain halted as :authenticate_resource_owner! rendered or redirected
+Completed 302 Found in 11ms (ActiveRecord: 8.5ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2015-05-09 13:34:29 +0530
+Processing by SessionsController#new as JSON
+Completed 200 OK in 15ms (Views: 0.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2015-05-09 13:43:53 +0530
+Processing by SessionsController#new as HTML
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/devise-3.4.1/app/views/devise/sessions/new.html.erb (21.6ms)
+Completed 500 Internal Server Error in 36ms
+
+ActionView::Template::Error (undefined local variable or method `resource' for #<#<Class:0x007fad5980ab48>:0x007fad54106a18>):
+    1: <h2>Log in</h2>
+    2: 
+    3: <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    4:   <div class="field">
+    5:     <%= f.label :email %><br />
+    6:     <%= f.email_field :email, autofocus: true %>
+  devise (3.4.1) app/views/devise/sessions/new.html.erb:3:in `___sers_navinnegi__rbenv_versions_______lib_ruby_gems_______gems_devise_______app_views_devise_sessions_new_html_erb___3763751747043624078_70191183918640'
+  actionview (4.2.0) lib/action_view/template.rb:145:in `block in render'
+  activesupport (4.2.0) lib/active_support/notifications.rb:166:in `instrument'
+  actionview (4.2.0) lib/action_view/template.rb:333:in `instrument'
+  actionview (4.2.0) lib/action_view/template.rb:143:in `render'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:54:in `block (2 levels) in render_template'
+  actionview (4.2.0) lib/action_view/renderer/abstract_renderer.rb:39:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `instrument'
+  actionview (4.2.0) lib/action_view/renderer/abstract_renderer.rb:39:in `instrument'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:53:in `block in render_template'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:61:in `render_with_layout'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:52:in `render_template'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:14:in `render'
+  actionview (4.2.0) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.2.0) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.2.0) lib/action_view/rendering.rb:100:in `_render_template'
+  actionview (4.2.0) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.0) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.0) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.2.0) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/2.2.0/benchmark.rb:303:in `realtime'
+  activesupport (4.2.0) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  responders (2.1.0) lib/action_controller/responder.rb:236:in `default_render'
+  responders (2.1.0) lib/action_controller/responder.rb:170:in `to_html'
+  responders (2.1.0) lib/action_controller/responder.rb:163:in `respond'
+  responders (2.1.0) lib/action_controller/responder.rb:156:in `call'
+  responders (2.1.0) lib/action_controller/respond_with.rb:203:in `respond_with'
+  devise (3.4.1) app/controllers/devise/sessions_controller.rb:11:in `new'
+  actionpack (4.2.0) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:151:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:151:in `block in halting_and_conditional'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:151:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:151:in `block in halting_and_conditional'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:151:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:151:in `block in halting_and_conditional'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:151:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:151:in `block in halting_and_conditional'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:92:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_process_action_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal.rb:236:in `block in action'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:42:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/mapper.rb:49:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.6.1) lib/rack/etag.rb:24:in `call'
+  rack (1.6.1) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.1) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.1) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.1) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.1) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.1) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  rack (1.6.1) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.1) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.8ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (40.8ms)
+
+
+Started GET "/oauth/authorize?client_id=b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127&redirect_uri=http%3A%2F%2Flocalhost%3A3001%2Fums%2Fsign_in&response_type=code" for ::1 at 2015-05-09 13:49:41 +0530
+Processing by Doorkeeper::AuthorizationsController#new as HTML
+  Parameters: {"client_id"=>"b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127", "redirect_uri"=>"http://localhost:3001/ums/sign_in", "response_type"=>"code"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+Redirected to http://localhost:3000/users/sign_in
+Filter chain halted as :authenticate_resource_owner! rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2015-05-09 13:49:41 +0530
+
+Doorkeeper::Errors::DoorkeeperError (`doorkeeper_for` no longer available):
+  
+Starting in version 2.0.0 of doorkeeper gem, `doorkeeper_for` is no longer
+available. Please change `doorkeeper_for` calls in your application with:
+
+  before_action :doorkeeper_authorize!
+
+For more information check the README:
+https://github.com/doorkeeper-gem/doorkeeper#protecting-resources-with-oauth-aka-your-api-endpoint
+
+
+
+
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (29.6ms)
+
+
+Started GET "/oauth/authorize?client_id=b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127&redirect_uri=http%3A%2F%2Flocalhost%3A3001%2Fums%2Fsign_in&response_type=code" for ::1 at 2015-05-09 13:51:05 +0530
+Processing by Doorkeeper::AuthorizationsController#new as HTML
+  Parameters: {"client_id"=>"b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127", "redirect_uri"=>"http://localhost:3001/ums/sign_in", "response_type"=>"code"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Redirected to http://localhost:3000/users/sign_in
+Filter chain halted as :authenticate_resource_owner! rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2015-05-09 13:51:05 +0530
+
+SyntaxError (/Users/navinnegi/Sites/ums-login-service/app/controllers/application_controller.rb:5: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/controllers/application_controller.rb:5: syntax error, unexpected end-of-input, expecting keyword_end
+  app/controllers/sessions_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.9ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (32.5ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2015-05-09 14:00:15 +0530
+
+SyntaxError (/Users/navinnegi/Sites/ums-login-service/app/controllers/application_controller.rb:5: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/controllers/application_controller.rb:5: syntax error, unexpected end-of-input, expecting keyword_end
+  app/controllers/sessions_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.5ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (34.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2015-05-09 14:00:40 +0530
+Processing by SessionsController#new as JSON
+Filter chain halted as :doorkeeper_authorize! rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/oauth/authorize?client_id=b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127&redirect_uri=http%3A%2F%2Flocalhost%3A3001%2Fums%2Fsign_in&response_type=code" for ::1 at 2015-05-09 14:01:25 +0530
+Processing by Doorkeeper::AuthorizationsController#create as */*
+  Parameters: {"grant_type"=>"client_credentials", "client_id"=>"b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127", "redirect_uri"=>"http://localhost:3001/ums/sign_in", "response_type"=>"code"}
+Can't verify CSRF token authenticity
+Completed 422 Unprocessable Entity in 0ms
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  actionpack (4.2.0) lib/action_controller/metal/request_forgery_protection.rb:181:in `handle_unverified_request'
+  actionpack (4.2.0) lib/action_controller/metal/request_forgery_protection.rb:209:in `handle_unverified_request'
+  devise (3.4.1) lib/devise/controllers/helpers.rb:251:in `handle_unverified_request'
+  actionpack (4.2.0) lib/action_controller/metal/request_forgery_protection.rb:204:in `verify_authenticity_token'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:427:in `block in make_lambda'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:163:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:163:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:92:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_process_action_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal.rb:236:in `block in action'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:42:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.6.1) lib/rack/etag.rb:24:in `call'
+  rack (1.6.1) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.1) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.1) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.1) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.1) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.1) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  rack (1.6.1) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.1) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.8ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (35.7ms)
+
+
+Started POST "/oauth/authorize?client_id=b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127&redirect_uri=http%3A%2F%2Flocalhost%3A3001%2Fums%2Fsign_in&response_type=code" for ::1 at 2015-05-09 14:02:15 +0530
+Processing by Doorkeeper::AuthorizationsController#create as */*
+  Parameters: {"client_id"=>"b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127", "redirect_uri"=>"http://localhost:3001/ums/sign_in", "response_type"=>"code"}
+Can't verify CSRF token authenticity
+Completed 422 Unprocessable Entity in 0ms
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  actionpack (4.2.0) lib/action_controller/metal/request_forgery_protection.rb:181:in `handle_unverified_request'
+  actionpack (4.2.0) lib/action_controller/metal/request_forgery_protection.rb:209:in `handle_unverified_request'
+  devise (3.4.1) lib/devise/controllers/helpers.rb:251:in `handle_unverified_request'
+  actionpack (4.2.0) lib/action_controller/metal/request_forgery_protection.rb:204:in `verify_authenticity_token'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:427:in `block in make_lambda'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:163:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:163:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:92:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_process_action_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal.rb:236:in `block in action'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:42:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.6.1) lib/rack/etag.rb:24:in `call'
+  rack (1.6.1) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.1) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.1) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.1) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.1) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.1) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  rack (1.6.1) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.1) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.0ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (31.2ms)
+
+
+Started GET "/oauth/authorize?client_id=b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127&redirect_uri=http%3A%2F%2Flocalhost%3A3001%2Fums%2Fsign_in&response_type=code" for ::1 at 2015-05-09 14:02:41 +0530
+Processing by Doorkeeper::AuthorizationsController#new as */*
+  Parameters: {"client_id"=>"b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127", "redirect_uri"=>"http://localhost:3001/ums/sign_in", "response_type"=>"code"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+Redirected to http://localhost:3000/users/sign_in
+Filter chain halted as :authenticate_resource_owner! rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2015-05-09 14:02:41 +0530
+Processing by SessionsController#new as JSON
+Filter chain halted as :doorkeeper_authorize! rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in?email=dfdf@dfdf.com&username=dfsdfsd" for ::1 at 2015-05-09 19:32:30 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test@example.com", "password"=>"[FILTERED]"}, "email"=>"dfdf@dfdf.com", "username"=>"dfsdfsd"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = 'test@example.com'  ORDER BY `users`.`id` ASC LIMIT 1
+Completed 401 Unauthorized in 79ms (Views: 0.2ms | ActiveRecord: 2.3ms)
+
+
+Started POST "/oauth/token" for ::1 at 2015-05-09 19:44:58 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Doorkeeper::TokensController#create as */*
+  Parameters: {"client_id"=>"b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127", "client_secret"=>"[FILTERED]", "grant_type"=>"password", "password"=>"[FILTERED]", "username"=>"test@example.com"}
+Completed 401 Unauthorized in 6ms
+
+
+Started POST "/oauth/token" for ::1 at 2015-05-09 20:03:00 +0530
+Processing by Doorkeeper::TokensController#create as */*
+  Parameters: {"client_id"=>"b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127", "client_secret"=>"[FILTERED]", "grant_type"=>"password", "password"=>"[FILTERED]", "username"=>"test@example.com"}
+Completed 401 Unauthorized in 0ms
+
+
+Started POST "/oauth/token" for ::1 at 2015-05-09 20:16:13 +0530
+Processing by Doorkeeper::TokensController#create as */*
+  Parameters: {"client_id"=>"b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127", "client_secret"=>"[FILTERED]", "grant_type"=>"password", "password"=>"[FILTERED]", "username"=>"test@example.com"}
+Completed 401 Unauthorized in 0ms
+
+
+Started POST "/users/sign_in?email=dfdf@dfdf.com&username=dfsdfsd" for ::1 at 2015-05-09 20:26:02 +0530
+Processing by SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test@example.com", "password"=>"[FILTERED]"}, "email"=>"dfdf@dfdf.com", "username"=>"dfsdfsd"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = 'test@example.com'  ORDER BY `users`.`id` ASC LIMIT 1
+Completed 401 Unauthorized in 86ms (Views: 0.3ms | ActiveRecord: 2.3ms)
+
+
+Started POST "/users/sign_in?email=dfdf@dfdf.com&username=dfsdfsd" for ::1 at 2015-05-09 20:26:13 +0530
+Processing by SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test1@example.com", "password"=>"[FILTERED]"}, "email"=>"dfdf@dfdf.com", "username"=>"dfsdfsd"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'test1@example.com'  ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 401 Unauthorized in 62ms (Views: 0.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users/?email=dfdf@dfdf.com&username=dfsdfsd" for ::1 at 2015-05-09 20:26:52 +0530
+Processing by RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test1@example.com", "password"=>"[FILTERED]"}, "email"=>"dfdf@dfdf.com", "username"=>"dfsdfsd"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test1@example.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+Completed 422 Unprocessable Entity in 76ms (Views: 0.2ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users/?email=dfdf@dfdf.com&username=dfsdfsd" for ::1 at 2015-05-09 20:27:08 +0530
+Processing by RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test12@example.com", "password"=>"[FILTERED]"}, "email"=>"dfdf@dfdf.com", "username"=>"dfsdfsd"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test12@example.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+Completed 422 Unprocessable Entity in 65ms (Views: 0.1ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users/?email=dfdf@dfdf.com&username=dfsdfsd" for ::1 at 2015-05-09 20:27:16 +0530
+Processing by RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test1298766@example.com", "password"=>"[FILTERED]"}, "email"=>"dfdf@dfdf.com", "username"=>"dfsdfsd"}
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test1298766@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`) VALUES ('test1298766@example.com', '$2a$10$aoKrozxOUbxG.JHg6Wc.Xe9S/.Uj0Wt908xwHgg2snvi0O0uYGnJO', '2015-05-09 14:57:16.788251', '2015-05-09 14:57:16.788251')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 68ms (Views: 0.4ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/users/?email=dfdf@dfdf.com&username=dfsdfsd" for ::1 at 2015-05-09 20:28:04 +0530
+Processing by RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test23@example.com", "password"=>"[FILTERED]", "username"=>"new@nav"}, "email"=>"dfdf@dfdf.com", "username"=>"dfsdfsd"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test23@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`username`, `email`, `encrypted_password`, `created_at`, `updated_at`) VALUES ('new@nav', 'test23@example.com', '$2a$10$N7SWapJ1V5p1QutIFYn.C.bQE78TSl/kZ9sfAQDj3Mrf1QxGWvbhi', '2015-05-09 14:58:04.843188', '2015-05-09 14:58:04.843188')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 64ms (Views: 0.3ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/oauth/token" for ::1 at 2015-05-09 20:29:38 +0530
+Processing by Doorkeeper::TokensController#create as */*
+  Parameters: {"client_id"=>"b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127", "client_secret"=>"[FILTERED]", "grant_type"=>"password", "password"=>"[FILTERED]", "username"=>"test23@example.com"}
+Completed 401 Unauthorized in 0ms
+
+
+Started GET "/oauth/applications/" for ::1 at 2015-05-09 20:37:50 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Doorkeeper::ApplicationsController#index as HTML
+  [1m[35mDoorkeeper::Application Load (0.2ms)[0m  SELECT `oauth_applications`.* FROM `oauth_applications`
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/doorkeeper-2.2.1/app/views/doorkeeper/applications/_delete_form.html.erb (7.1ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/doorkeeper-2.2.1/app/views/doorkeeper/applications/index.html.erb within layouts/doorkeeper/admin (22.7ms)
+Completed 200 OK in 119ms (Views: 116.7ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/oauth/applications/new" for ::1 at 2015-05-09 20:37:55 +0530
+Processing by Doorkeeper::ApplicationsController#new as HTML
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/doorkeeper-2.2.1/app/views/doorkeeper/applications/_form.html.erb (7.9ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/doorkeeper-2.2.1/app/views/doorkeeper/applications/new.html.erb within layouts/doorkeeper/admin (9.3ms)
+Completed 200 OK in 15ms (Views: 14.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/oauth/applications" for ::1 at 2015-05-09 20:37:59 +0530
+Processing by Doorkeeper::ApplicationsController#index as HTML
+  [1m[36mDoorkeeper::Application Load (0.2ms)[0m  [1mSELECT `oauth_applications`.* FROM `oauth_applications`[0m
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/doorkeeper-2.2.1/app/views/doorkeeper/applications/_delete_form.html.erb (0.4ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/doorkeeper-2.2.1/app/views/doorkeeper/applications/index.html.erb within layouts/doorkeeper/admin (2.4ms)
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/oauth/applications" for ::1 at 2015-05-09 20:38:01 +0530
+Processing by Doorkeeper::ApplicationsController#index as HTML
+  [1m[35mDoorkeeper::Application Load (0.2ms)[0m  SELECT `oauth_applications`.* FROM `oauth_applications`
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/doorkeeper-2.2.1/app/views/doorkeeper/applications/_delete_form.html.erb (0.4ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/doorkeeper-2.2.1/app/views/doorkeeper/applications/index.html.erb within layouts/doorkeeper/admin (2.3ms)
+Completed 200 OK in 8ms (Views: 7.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/oauth/applications" for ::1 at 2015-05-09 20:38:04 +0530
+Processing by Doorkeeper::ApplicationsController#index as HTML
+  [1m[36mDoorkeeper::Application Load (0.2ms)[0m  [1mSELECT `oauth_applications`.* FROM `oauth_applications`[0m
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/doorkeeper-2.2.1/app/views/doorkeeper/applications/_delete_form.html.erb (0.4ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/doorkeeper-2.2.1/app/views/doorkeeper/applications/index.html.erb within layouts/doorkeeper/admin (2.3ms)
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/oauth/applications" for ::1 at 2015-05-09 20:38:04 +0530
+Processing by Doorkeeper::ApplicationsController#index as HTML
+  [1m[35mDoorkeeper::Application Load (0.2ms)[0m  SELECT `oauth_applications`.* FROM `oauth_applications`
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/doorkeeper-2.2.1/app/views/doorkeeper/applications/_delete_form.html.erb (0.5ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/doorkeeper-2.2.1/app/views/doorkeeper/applications/index.html.erb within layouts/doorkeeper/admin (2.5ms)
+Completed 200 OK in 8ms (Views: 7.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/oauth/applications" for ::1 at 2015-05-09 20:38:06 +0530
+Processing by Doorkeeper::ApplicationsController#index as HTML
+  [1m[36mDoorkeeper::Application Load (0.2ms)[0m  [1mSELECT `oauth_applications`.* FROM `oauth_applications`[0m
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/doorkeeper-2.2.1/app/views/doorkeeper/applications/_delete_form.html.erb (0.4ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/doorkeeper-2.2.1/app/views/doorkeeper/applications/index.html.erb within layouts/doorkeeper/admin (2.3ms)
+Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/oauth/applications/new" for ::1 at 2015-05-09 20:38:09 +0530
+Processing by Doorkeeper::ApplicationsController#new as HTML
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/doorkeeper-2.2.1/app/views/doorkeeper/applications/_form.html.erb (1.5ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/doorkeeper-2.2.1/app/views/doorkeeper/applications/new.html.erb within layouts/doorkeeper/admin (2.5ms)
+Completed 200 OK in 9ms (Views: 8.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/oauth/token" for ::1 at 2015-05-09 20:45:46 +0530
+Processing by Doorkeeper::TokensController#create as */*
+  Parameters: {"client_id"=>"b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127", "client_secret"=>"[FILTERED]", "grant_type"=>"password", "password"=>"[FILTERED]", "username"=>"test23@example.com"}
+Completed 401 Unauthorized in 0ms
+
+
+Started POST "/oauth/token" for ::1 at 2015-05-09 21:06:03 +0530
+Processing by Doorkeeper::TokensController#create as */*
+  Parameters: {"grant_type"=>"client_credentials"}
+  [1m[35mDoorkeeper::Application Load (0.2ms)[0m  SELECT  `oauth_applications`.* FROM `oauth_applications` WHERE `oauth_applications`.`uid` = 'b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127' AND `oauth_applications`.`secret` = 'db54d1cb21ed0217ba9cede555b0bc45d8eb8ab2ed0ae3df27a36b7b3a73e932' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mDoorkeeper::Application Load (0.2ms)[0m  SELECT  `oauth_applications`.* FROM `oauth_applications` WHERE `oauth_applications`.`id` = 1 LIMIT 1
+  [1m[36mDoorkeeper::AccessToken Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `oauth_access_tokens` WHERE `oauth_access_tokens`.`token` = BINARY 'e202594cba85f26ec95b9db9f3eb5479aab7fc259c8ad2fc2fe10533c2f5b74d' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `oauth_access_tokens` (`expires_in`, `application_id`, `scopes`, `token`, `created_at`) VALUES (7200, 1, '', 'e202594cba85f26ec95b9db9f3eb5479aab7fc259c8ad2fc2fe10533c2f5b74d', '2015-05-09 15:36:03.504150')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 23ms
+
+
+Started GET "/" for ::1 at 2015-05-09 21:10:08 +0530
+Processing by Rails::WelcomeController#index as */*
+  Parameters: {"password"=>"[FILTERED]", "username"=>""}
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/railties-4.2.0/lib/rails/templates/rails/welcome/index.html.erb (0.5ms)
+Completed 200 OK in 10ms (Views: 9.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/oauth/token" for ::1 at 2015-05-09 21:11:47 +0530
+Processing by Doorkeeper::TokensController#create as */*
+  Parameters: {"client_id"=>"b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127", "client_secret"=>"[FILTERED]", "grant_type"=>"password", "password"=>"[FILTERED]", "username"=>"test23@example.com"}
+Completed 401 Unauthorized in 0ms
+
+
+Started POST "/oauth/authorize?client_id=b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127&client_secret=[FILTERED]&username=test23@example.com&password=[FILTERED]" for ::1 at 2015-05-09 21:13:55 +0530
+Processing by Doorkeeper::AuthorizationsController#create as */*
+  Parameters: {"client_id"=>"b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127", "client_secret"=>"[FILTERED]", "username"=>"test23@example.com", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity
+Completed 422 Unprocessable Entity in 0ms
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  actionpack (4.2.0) lib/action_controller/metal/request_forgery_protection.rb:181:in `handle_unverified_request'
+  actionpack (4.2.0) lib/action_controller/metal/request_forgery_protection.rb:209:in `handle_unverified_request'
+  devise (3.4.1) lib/devise/controllers/helpers.rb:251:in `handle_unverified_request'
+  actionpack (4.2.0) lib/action_controller/metal/request_forgery_protection.rb:204:in `verify_authenticity_token'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:427:in `block in make_lambda'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:163:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:163:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:92:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_process_action_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal.rb:236:in `block in action'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:42:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.6.1) lib/rack/etag.rb:24:in `call'
+  rack (1.6.1) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.1) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.1) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.1) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.1) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.1) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  rack (1.6.1) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.1) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.9ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (35.7ms)
+
+
+Started POST "/oauth/token" for ::1 at 2015-05-09 21:24:07 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Doorkeeper::TokensController#create as */*
+  Parameters: {"client_id"=>"b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127", "client_secret"=>"[FILTERED]", "grant_type"=>"password", "password"=>"[FILTERED]", "username"=>"test23@example.com"}
+Completed 401 Unauthorized in 6ms
+
+
+Started POST "/oauth/token" for ::1 at 2015-05-09 21:24:11 +0530
+Processing by Doorkeeper::TokensController#create as */*
+  Parameters: {"client_id"=>"b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127", "client_secret"=>"[FILTERED]", "grant_type"=>"password", "password"=>"[FILTERED]", "username"=>"test23@example.com"}
+Completed 401 Unauthorized in 0ms
+
+
+Started POST "/oauth/token" for ::1 at 2015-05-09 21:26:10 +0530
+Processing by Doorkeeper::TokensController#create as */*
+  Parameters: {"client_id"=>"b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127", "client_secret"=>"[FILTERED]", "grant_type"=>"password", "password"=>"[FILTERED]", "username"=>"test23@example.com"}
+Completed 401 Unauthorized in 0ms
+
+
+Started POST "/oauth/token" for ::1 at 2015-05-09 21:29:03 +0530
+Processing by Doorkeeper::TokensController#create as */*
+  Parameters: {"client_id"=>"b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127", "client_secret"=>"[FILTERED]", "grant_type"=>"password", "password"=>"[FILTERED]", "username"=>"test23@example.com"}
+Completed 401 Unauthorized in 0ms
+
+
+Started POST "/oauth/token" for ::1 at 2015-05-09 21:29:36 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Doorkeeper::TokensController#create as */*
+  Parameters: {"client_id"=>"b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127", "client_secret"=>"[FILTERED]", "grant_type"=>"password", "password"=>"[FILTERED]", "username"=>"test23@example.com"}
+Completed 401 Unauthorized in 6ms
+
+
+Started POST "/oauth/token" for ::1 at 2015-05-09 21:56:21 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Doorkeeper::TokensController#create as */*
+  Parameters: {"client_id"=>"b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127", "client_secret"=>"[FILTERED]", "grant_type"=>"password", "password"=>"[FILTERED]", "username"=>""}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = ''  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mDoorkeeper::Application Load (0.1ms)[0m  [1mSELECT  `oauth_applications`.* FROM `oauth_applications` WHERE `oauth_applications`.`uid` = 'b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127' AND `oauth_applications`.`secret` = 'b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127' LIMIT 1[0m
+Completed 401 Unauthorized in 13ms
+
+
+Started POST "/oauth/token" for ::1 at 2015-05-09 21:57:55 +0530
+Processing by Doorkeeper::TokensController#create as */*
+  Parameters: {"client_id"=>"b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127", "client_secret"=>"[FILTERED]", "grant_type"=>"password", "password"=>"[FILTERED]", "username"=>""}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = ''  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mDoorkeeper::Application Load (0.2ms)[0m  [1mSELECT  `oauth_applications`.* FROM `oauth_applications` WHERE `oauth_applications`.`uid` = 'b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127' AND `oauth_applications`.`secret` = 'b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127' LIMIT 1[0m
+Completed 401 Unauthorized in 2ms
+
+
+Started POST "/oauth/token" for ::1 at 2015-05-09 22:00:52 +0530
+Processing by Doorkeeper::TokensController#create as */*
+  Parameters: {"client_id"=>"b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127", "client_secret"=>"[FILTERED]", "grant_type"=>"password", "password"=>"[FILTERED]", "username"=>""}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = ''  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mDoorkeeper::Application Load (0.2ms)[0m  [1mSELECT  `oauth_applications`.* FROM `oauth_applications` WHERE `oauth_applications`.`uid` = 'b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127' AND `oauth_applications`.`secret` = 'db54d1cb21ed0217ba9cede555b0bc45d8eb8ab2ed0ae3df27a36b7b3a73e932' LIMIT 1[0m
+Completed 401 Unauthorized in 5ms
+
+
+Started GET "/oauth/applications/" for ::1 at 2015-05-09 22:05:33 +0530
+Processing by Doorkeeper::ApplicationsController#index as HTML
+  [1m[35mDoorkeeper::Application Load (0.2ms)[0m  SELECT `oauth_applications`.* FROM `oauth_applications`
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/doorkeeper-2.2.1/app/views/doorkeeper/applications/_delete_form.html.erb (7.4ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/doorkeeper-2.2.1/app/views/doorkeeper/applications/index.html.erb within layouts/doorkeeper/admin (13.0ms)
+Completed 200 OK in 144ms (Views: 143.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/oauth/applications/1/edit" for ::1 at 2015-05-09 22:05:36 +0530
+Processing by Doorkeeper::ApplicationsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDoorkeeper::Application Load (0.3ms)[0m  [1mSELECT  `oauth_applications`.* FROM `oauth_applications` WHERE `oauth_applications`.`id` = 1 LIMIT 1[0m
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/doorkeeper-2.2.1/app/views/doorkeeper/applications/_form.html.erb (13.3ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/doorkeeper-2.2.1/app/views/doorkeeper/applications/edit.html.erb within layouts/doorkeeper/admin (15.5ms)
+Completed 200 OK in 24ms (Views: 21.3ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/oauth/applications/1" for ::1 at 2015-05-09 22:05:41 +0530
+Processing by Doorkeeper::ApplicationsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"[FILTERED]", "doorkeeper_application"=>{"name"=>"ums", "redirect_uri"=>"http://localhost:3001/ums/sign_in"}, "commit"=>"Submit", "id"=>"1"}
+  [1m[35mDoorkeeper::Application Load (0.7ms)[0m  SELECT  `oauth_applications`.* FROM `oauth_applications` WHERE `oauth_applications`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mDoorkeeper::Application Exists (0.3ms)[0m  SELECT  1 AS one FROM `oauth_applications` WHERE (`oauth_applications`.`uid` = BINARY 'b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127' AND `oauth_applications`.`id` != 1) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/oauth/applications/1
+Completed 302 Found in 14ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/oauth/applications/1" for ::1 at 2015-05-09 22:05:41 +0530
+Processing by Doorkeeper::ApplicationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mDoorkeeper::Application Load (0.2ms)[0m  SELECT  `oauth_applications`.* FROM `oauth_applications` WHERE `oauth_applications`.`id` = 1 LIMIT 1
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/doorkeeper-2.2.1/app/views/doorkeeper/applications/_delete_form.html.erb (0.8ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/doorkeeper-2.2.1/app/views/doorkeeper/applications/show.html.erb within layouts/doorkeeper/admin (2.8ms)
+Completed 200 OK in 10ms (Views: 9.6ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/oauth/token" for ::1 at 2015-05-09 22:10:40 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Doorkeeper::TokensController#create as */*
+  Parameters: {"client_id"=>"b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127", "client_secret"=>"[FILTERED]", "grant_type"=>"password", "password"=>"[FILTERED]", "username"=>""}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = ''  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mDoorkeeper::Application Load (0.2ms)[0m  [1mSELECT  `oauth_applications`.* FROM `oauth_applications` WHERE `oauth_applications`.`uid` = 'b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127' AND `oauth_applications`.`secret` = 'db54d1cb21ed0217ba9cede555b0bc45d8eb8ab2ed0ae3df27a36b7b3a73e932' LIMIT 1[0m
+Completed 401 Unauthorized in 22ms
+
+
+Started POST "/oauth/token" for ::1 at 2015-05-09 22:12:17 +0530
+Processing by Doorkeeper::TokensController#create as */*
+  Parameters: {"client_id"=>"b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127", "client_secret"=>"[FILTERED]", "grant_type"=>"password", "password"=>"[FILTERED]", "username"=>"test23@example.com"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = 'test23@example.com'  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mDoorkeeper::Application Load (0.4ms)[0m  [1mSELECT  `oauth_applications`.* FROM `oauth_applications` WHERE `oauth_applications`.`uid` = 'b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127' AND `oauth_applications`.`secret` = 'db54d1cb21ed0217ba9cede555b0bc45d8eb8ab2ed0ae3df27a36b7b3a73e932' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDoorkeeper::Application Load (0.3ms)[0m  [1mSELECT  `oauth_applications`.* FROM `oauth_applications` WHERE `oauth_applications`.`id` = 1 LIMIT 1[0m
+  [1m[35mDoorkeeper::AccessToken Exists (0.3ms)[0m  SELECT  1 AS one FROM `oauth_access_tokens` WHERE `oauth_access_tokens`.`token` = BINARY '62efe5a487a8bdd8ad966598c60f6827d1e5b140bcf055b77e055e9f63a7ea30' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `oauth_access_tokens` (`application_id`, `resource_owner_id`, `scopes`, `expires_in`, `token`, `created_at`) VALUES (1, 9, '', 7200, '62efe5a487a8bdd8ad966598c60f6827d1e5b140bcf055b77e055e9f63a7ea30', '2015-05-09 16:42:17.331930')[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+Completed 200 OK in 92ms
+
+
+Started POST "/oauth/token" for ::1 at 2015-05-09 22:14:05 +0530
+Processing by Doorkeeper::TokensController#create as */*
+  Parameters: {"client_id"=>"b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127", "client_secret"=>"[FILTERED]", "grant_type"=>"password", "password"=>"[FILTERED]", "username"=>"test23@example.com"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'test23@example.com'  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mDoorkeeper::Application Load (0.3ms)[0m  SELECT  `oauth_applications`.* FROM `oauth_applications` WHERE `oauth_applications`.`uid` = 'b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127' AND `oauth_applications`.`secret` = 'db54d1cb21ed0217ba9cede555b0bc45d8eb8ab2ed0ae3df27a36b7b3a73e932' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mDoorkeeper::Application Load (0.2ms)[0m  SELECT  `oauth_applications`.* FROM `oauth_applications` WHERE `oauth_applications`.`id` = 1 LIMIT 1
+  [1m[36mDoorkeeper::AccessToken Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `oauth_access_tokens` WHERE `oauth_access_tokens`.`token` = BINARY 'cbeb2124a1338236a54c50c35acf2741f14d96863b44c8325b2b162a60d7e22c' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `oauth_access_tokens` (`application_id`, `resource_owner_id`, `scopes`, `expires_in`, `token`, `created_at`) VALUES (1, 9, '', 7200, 'cbeb2124a1338236a54c50c35acf2741f14d96863b44c8325b2b162a60d7e22c', '2015-05-09 16:44:05.712847')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 66ms
+
+
+Started POST "/users/sign_in?access_token=[FILTERED]" for ::1 at 2015-05-09 22:18:01 +0530
+Processing by SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test@example.com", "password"=>"[FILTERED]"}, "access_token"=>"[FILTERED]"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = 'test@example.com'  ORDER BY `users`.`id` ASC LIMIT 1
+Completed 401 Unauthorized in 77ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/sign_in?access_token=[FILTERED]" for ::1 at 2015-05-09 22:18:19 +0530
+Processing by SessionsController#new as JSON
+  Parameters: {"access_token"=>"[FILTERED]"}
+Completed 200 OK in 19ms (Views: 0.8ms | ActiveRecord: 0.0ms)

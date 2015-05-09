@@ -4,13 +4,44 @@ Doorkeeper.configure do
   # :mongoid4, :mongo_mapper
   orm :active_record
 
-  # This block will be called to check whether the resource owner is authenticated or not.
-  resource_owner_authenticator do
-    #fail "Please configure doorkeeper resource_owner_authenticator block located in #{__FILE__}"
-    # Put your resource owner authentication logic here.
-    # Example implementation:
-       User.find_by_id(session[:user_id]) || redirect_to(new_user_session_url)
+  # # This block will be called to check whether the resource owner is authenticated or not.
+  # resource_owner_from_credentials do |routes|
+  #   #fail "Please configure doorkeeper resource_owner_authenticator block located in #{__FILE__}"
+  #   # Put your resource owner authentication logic here.
+  #   # Example implementation:
+  #      puts "================================================================="
+  #      puts "Authenticating  resource ... "
+  #      puts "================================================================="
+  #      u = User.find_for_database_authentication(:email => params[:username])
+  #      u if u && u.valid_password?(params[:password])
+  # end
+
+  #   resource_owner_authenticator do
+  #      puts "================================================================="
+  #      puts "Authenticating  resource credential ... "
+  #      puts "================================================================="
+    
+  #    current_user || warden.authenticate!(:scope => :user)
+  # end
+
+  resource_owner_from_credentials do |routes|
+       puts "================================================================="
+       puts "Authenticating  resource credential ... "
+       puts "================================================================="
+    u = User.find_for_database_authentication(:email => params[:username])
+    u if u && u.valid_password?(params[:password])
   end
+
+  access_token_expires_in 2.hours
+
+  # use_refresh_token
+
+  # client_credentials :from_basic
+
+  access_token_methods :from_bearer_authorization
+
+  grant_flows %w(password)
+ 
 
   # If you want to restrict access to the web interface for adding oauth authorized applications, you need to declare the block below.
   # admin_authenticator do
@@ -84,7 +115,7 @@ Doorkeeper.configure do
   #
   # "authorization_code" => Authorization Code Grant Flow
   # "implicit"           => Implicit Grant Flow
-  # "password"           => Resource Owner Password Credentials Grant Flow
+   # "password"           => Resource Owner Password Credentials Grant Flow
   # "client_credentials" => Client Credentials Grant Flow
   #
   # If not specified, Doorkeeper enables authorization_code and
@@ -100,9 +131,9 @@ Doorkeeper.configure do
   # Under some circumstances you might want to have applications auto-approved,
   # so that the user skips the authorization step.
   # For example if dealing with a trusted application.
-  # skip_authorization do |resource_owner, client|
-  #   client.superapp? or resource_owner.admin?
-  # end
+   skip_authorization do 
+     true
+   end
 
   # WWW-Authenticate Realm (default "Doorkeeper").
   # realm "Doorkeeper"
