@@ -3,17 +3,14 @@ class RegistrationsController < Devise::RegistrationsController
   respond_to :json
   
   def create
-    puts "============================================================"
-    puts "registering new user"
-    puts "============================================================"
-
+    application = Doorkeeper::Application.where(uid: params[:client_id]).first
+   
     @user = User.new(sign_up_params)
     if @user.save
-       puts "============================================================"
-       puts "new user registered"
-       puts "============================================================"
+       access_token = AccessToken.create!(application_id: application.id,
+         resource_owner_id: @user.id, :expires_in => 2.hours)
 
-      render json: @user
+       render json: access_token
       return
     else
       warden.custom_failure!
@@ -79,5 +76,6 @@ class RegistrationsController < Devise::RegistrationsController
   def sign_up_params
     params.require(:user).permit(:username, :email, :password, :password_confirmation)
   end
+
 
 end

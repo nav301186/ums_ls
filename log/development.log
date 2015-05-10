@@ -6758,3 +6758,691 @@ Processing by SessionsController#create as JSON
   [1m[36mSQL (0.2ms)[0m  [1mUPDATE `users` SET `current_sign_in_at` = '2015-05-09 19:05:20.044478', `sign_in_count` = 2, `updated_at` = '2015-05-09 19:05:20.045573' WHERE `users`.`id` = 9[0m
   [1m[35m (0.2ms)[0m  COMMIT
 Completed 200 OK in 26ms (Views: 0.4ms | ActiveRecord: 3.7ms)
+
+
+Started POST "/users/" for ::1 at 2015-05-10 00:39:28 +0530
+Processing by RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test0001@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test0001@example.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`) VALUES ('test0001@example.com', '$2a$10$DOsb4WAcfth7bEZkhDW8SeauX4lQqBEOKdhIg9NURMfvyXLR8FSdu', '2015-05-09 19:09:28.402149', '2015-05-09 19:09:28.402149')[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+Completed 500 Internal Server Error in 80ms
+
+NameError (undefined local variable or method `application_id' for #<RegistrationsController:0x007fad054b9178>):
+  app/controllers/registrations_controller.rb:15:in `create'
+
+
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.0ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (33.6ms)
+
+
+Started POST "/users/" for ::1 at 2015-05-10 00:44:35 +0530
+Processing by RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test0001@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test0001@example.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+Completed 422 Unprocessable Entity in 89ms (Views: 0.2ms | ActiveRecord: 2.5ms)
+
+
+Started POST "/users/" for ::1 at 2015-05-10 00:44:44 +0530
+Processing by RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test00011@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test00011@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`) VALUES ('test00011@example.com', '$2a$10$ZqzuJP69Gv33UhG2SYHxKeU69MQ5MJ1K5K7lOJ6jZj/zNLfe0455.', '2015-05-09 19:14:44.725306', '2015-05-09 19:14:44.725306')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 67ms (Views: 0.3ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/users/" for ::1 at 2015-05-10 00:45:42 +0530
+Processing by RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test000111@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test000111@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`) VALUES ('test000111@example.com', '$2a$10$3FYj1fLvY5xTeqL4yvEw0edcXMRmE91P1bys9ZEcLm80Gs6CcJ63W', '2015-05-09 19:15:42.486363', '2015-05-09 19:15:42.486363')
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Completed 500 Internal Server Error in 75ms
+
+NoMethodError (undefined method `token' for nil:NilClass):
+  app/controllers/registrations_controller.rb:15:in `create'
+
+
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.1ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (31.8ms)
+
+
+Started POST "/users/" for ::1 at 2015-05-10 00:51:19 +0530
+Processing by RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test000111@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test000111@example.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+Completed 422 Unprocessable Entity in 72ms (Views: 0.1ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/users/" for ::1 at 2015-05-10 00:51:41 +0530
+Processing by RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test00012111@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test00012111@example.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`) VALUES ('test00012111@example.com', '$2a$10$WNk3bWqiVK1WKAMmg4zvG.dbBygM0nD05DyPewkw0zokYVbeIpJVm', '2015-05-09 19:21:41.131432', '2015-05-09 19:21:41.131432')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+Completed 200 OK in 72ms (Views: 0.2ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/users/" for ::1 at 2015-05-10 01:22:20 +0530
+Processing by RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test00012111@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test00012111@example.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+Completed 422 Unprocessable Entity in 73ms (Views: 0.1ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/users/" for ::1 at 2015-05-10 01:22:25 +0530
+Processing by RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test000121211@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test000121211@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`) VALUES ('test000121211@example.com', '$2a$10$p9m/kyEfezEB7KgD43GCMuUvm7ji.NMEbxOwA7hzMEEnfDtBnSkLC', '2015-05-09 19:52:25.492911', '2015-05-09 19:52:25.492911')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Completed 500 Internal Server Error in 71ms
+
+NameError (uninitialized constant RegistrationsController::OauthAccessTokens):
+  app/controllers/registrations_controller.rb:12:in `create'
+
+
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.1ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (31.9ms)
+
+
+Started POST "/users/" for ::1 at 2015-05-10 01:23:19 +0530
+Processing by RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test000121211@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test000121211@example.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+Completed 422 Unprocessable Entity in 73ms (Views: 0.1ms | ActiveRecord: 2.7ms)
+
+
+Started POST "/users/" for ::1 at 2015-05-10 01:23:24 +0530
+Processing by RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test0001212121@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test0001212121@example.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`) VALUES ('test0001212121@example.com', '$2a$10$bsDM/b1h4ANOkdfZWJ9TtOIq.F.N6mtCMSQO5eH6ObopD08Psc26i', '2015-05-09 19:53:24.256095', '2015-05-09 19:53:24.256095')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+Completed 500 Internal Server Error in 64ms
+
+NameError (uninitialized constant RegistrationsController::OauthAccessToken):
+  app/controllers/registrations_controller.rb:12:in `create'
+
+
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.6ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (35.0ms)
+
+
+Started POST "/users/" for ::1 at 2015-05-10 01:27:03 +0530
+Processing by RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test0001212121@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test0001212121@example.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+Completed 422 Unprocessable Entity in 76ms (Views: 0.2ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/users/" for ::1 at 2015-05-10 01:27:08 +0530
+Processing by RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test00012212121@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test00012212121@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`) VALUES ('test00012212121@example.com', '$2a$10$.iiosQMwAMNIRAxUk//YQemrWVQ4UxvYhuBTGbXbzsh5YIRFwYSde', '2015-05-09 19:57:08.502302', '2015-05-09 19:57:08.502302')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mDoorkeeper::AccessToken Load (0.2ms)[0m  SELECT  `oauth_access_tokens`.* FROM `oauth_access_tokens` WHERE `oauth_access_tokens`.`id` = NULL LIMIT 1
+Completed 404 Not Found in 65ms
+
+ActiveRecord::RecordNotFound (Couldn't find Doorkeeper::AccessToken with 'id'=):
+  app/controllers/registrations_controller.rb:12:in `create'
+
+
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.8ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (33.6ms)
+
+
+Started POST "/users/" for ::1 at 2015-05-10 01:29:10 +0530
+Processing by RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test00012212121@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test00012212121@example.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+Completed 422 Unprocessable Entity in 73ms (Views: 0.1ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/users/" for ::1 at 2015-05-10 01:29:14 +0530
+Processing by RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test0001212212121@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test0001212212121@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`) VALUES ('test0001212212121@example.com', '$2a$10$HBlagm1mgYfor1v6fZNltuckDFmGUVj.n1HEQoJh8ywUazZL2DKwK', '2015-05-09 19:59:14.457707', '2015-05-09 19:59:14.457707')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mDoorkeeper::AccessToken Load (0.2ms)[0m  SELECT  `oauth_access_tokens`.* FROM `oauth_access_tokens` WHERE `oauth_access_tokens`.`id` = 17 LIMIT 1
+Completed 404 Not Found in 65ms
+
+ActiveRecord::RecordNotFound (Couldn't find Doorkeeper::AccessToken with 'id'=17):
+  app/controllers/registrations_controller.rb:12:in `create'
+
+
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.2ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (36.3ms)
+
+
+Started POST "/users/" for ::1 at 2015-05-10 01:30:23 +0530
+Processing by RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test0001212212121@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test0001212212121@example.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+Completed 422 Unprocessable Entity in 75ms (Views: 0.1ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/users/" for ::1 at 2015-05-10 01:30:26 +0530
+Processing by RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test01001212212121@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test01001212212121@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`) VALUES ('test01001212212121@example.com', '$2a$10$mCELsdFU3Wyi5mBktSA2bOGa6bIIKUb0FuLm4HCv38xeWLs8vXLQ6', '2015-05-09 20:00:26.887091', '2015-05-09 20:00:26.887091')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mDoorkeeper::AccessToken Load (0.2ms)[0m  SELECT  `oauth_access_tokens`.* FROM `oauth_access_tokens` WHERE `oauth_access_tokens`.`id` = 18 LIMIT 1
+Completed 500 Internal Server Error in 72ms
+
+ActionView::MissingTemplate (Missing template registrations/create, devise/registrations/create, devise/create, application/create with {:locale=>[:en], :formats=>[:json], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby]}. Searched in:
+  * "/Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/doorkeeper-2.2.1/app/views"
+  * "/Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/devise-3.4.1/app/views"
+):
+  actionview (4.2.0) lib/action_view/path_set.rb:46:in `find'
+  actionview (4.2.0) lib/action_view/lookup_context.rb:121:in `find'
+  actionview (4.2.0) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:40:in `determine_template'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionview (4.2.0) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.2.0) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.2.0) lib/action_view/rendering.rb:100:in `_render_template'
+  actionview (4.2.0) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.0) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.0) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.2.0) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/2.2.0/benchmark.rb:303:in `realtime'
+  activesupport (4.2.0) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.2.0) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:151:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:151:in `block in halting_and_conditional'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:151:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:151:in `block in halting_and_conditional'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:92:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_process_action_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal.rb:236:in `block in action'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:42:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/mapper.rb:49:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.6.1) lib/rack/etag.rb:24:in `call'
+  rack (1.6.1) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.1) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.1) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  rack (1.6.1) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.1) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.0ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (32.8ms)
+
+
+Started POST "/users/" for ::1 at 2015-05-10 01:32:45 +0530
+Processing by RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test01001212212121@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test01001212212121@example.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+Completed 422 Unprocessable Entity in 72ms (Views: 0.1ms | ActiveRecord: 2.5ms)
+
+
+Started POST "/users/" for ::1 at 2015-05-10 01:32:50 +0530
+Processing by RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test023231001212212121@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test023231001212212121@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`) VALUES ('test023231001212212121@example.com', '$2a$10$Ia.xDeSQVbegI.KBSihd4u/OFJbtwJQNFw6e/u4LsfgvazIdQvqyi', '2015-05-09 20:02:50.588656', '2015-05-09 20:02:50.588656')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Completed 500 Internal Server Error in 66ms
+
+NameError (undefined local variable or method `user' for #<RegistrationsController:0x007fad05249140>):
+  app/controllers/registrations_controller.rb:15:in `create'
+
+
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.1ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (33.8ms)
+
+
+Started POST "/users/" for ::1 at 2015-05-10 01:33:26 +0530
+Processing by RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test0213231001212212121@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test0213231001212212121@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`) VALUES ('test0213231001212212121@example.com', '$2a$10$oD7acEdGxy9bvPttxos5VuR8hcID2KGK.dL43UjgMevdJyl6b4TZG', '2015-05-09 20:03:26.550811', '2015-05-09 20:03:26.550811')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mDoorkeeper::Application Load (0.2ms)[0m  [1mSELECT  `oauth_applications`.* FROM `oauth_applications` WHERE `oauth_applications`.`id` = 1 LIMIT 1[0m
+  [1m[35mDoorkeeper::AccessToken Exists (0.2ms)[0m  SELECT  1 AS one FROM `oauth_access_tokens` WHERE `oauth_access_tokens`.`token` = BINARY '2da4d624c3727a6b067cf15768d8dfcacf3792d1750d0d6660db21113c29960f' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `oauth_access_tokens` (`application_id`, `resource_owner_id`, `expires_in`, `token`, `created_at`) VALUES (1, 20, 604800, '2da4d624c3727a6b067cf15768d8dfcacf3792d1750d0d6660db21113c29960f', '2015-05-09 20:03:26.565529')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+Completed 200 OK in 92ms (Views: 0.3ms | ActiveRecord: 6.2ms)
+
+
+Started POST "/users/" for ::1 at 2015-05-10 01:34:16 +0530
+Processing by RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test012213231001212212121@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test012213231001212212121@example.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`) VALUES ('test012213231001212212121@example.com', '$2a$10$QO/izA0.aaNxqMHY5tn4bub1GZU7EkXIUlGBLJ1BXPxZwM/KPyWcK', '2015-05-09 20:04:16.877239', '2015-05-09 20:04:16.877239')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mDoorkeeper::Application Load (0.2ms)[0m  SELECT  `oauth_applications`.* FROM `oauth_applications` WHERE `oauth_applications`.`id` = 1 LIMIT 1
+  [1m[36mDoorkeeper::AccessToken Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `oauth_access_tokens` WHERE `oauth_access_tokens`.`token` = BINARY '87ad4e7236a60648cd037e12a8672b3af9db4d599840a4e2eca3bde32ea6290c' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `oauth_access_tokens` (`application_id`, `resource_owner_id`, `expires_in`, `token`, `created_at`) VALUES (1, 21, 604800, '87ad4e7236a60648cd037e12a8672b3af9db4d599840a4e2eca3bde32ea6290c', '2015-05-09 20:04:16.887641')
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 85ms (Views: 0.3ms | ActiveRecord: 5.6ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2015-05-10 01:36:05 +0530
+Processing by SessionsController#create as JSON
+  [1m[35mDoorkeeper::AccessToken Load (0.3ms)[0m  SELECT  `oauth_access_tokens`.* FROM `oauth_access_tokens` WHERE `oauth_access_tokens`.`token` = '87ad4e7236a60648cd037e12a8672b3af9db4d599840a4e2eca3bde32ea6290c' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 21 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE `users` SET `last_sign_in_at` = '2015-05-09 20:06:05.827513', `current_sign_in_at` = '2015-05-09 20:06:05.827513', `last_sign_in_ip` = '::1', `current_sign_in_ip` = '::1', `sign_in_count` = 1, `updated_at` = '2015-05-09 20:06:05.828752' WHERE `users`.`id` = 21[0m
+  [1m[35m (0.7ms)[0m  COMMIT
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/users/" for ::1 at 2015-05-10 09:47:53 +0530
+Error occurred while parsing request parameters.
+Contents:
+
+{"user":{
+          "email":"test00010@example.com",
+          "password":"Test1232323",
+          "password_confirmation":"Test1232323"
+          "client_id": "b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127"
+        }
+}
+
+ActionDispatch::ParamsParser::ParseError (795: unexpected token at '{"user":{
+          "email":"test00010@example.com",
+          "password":"Test1232323",
+          "password_confirmation":"Test1232323"
+          "client_id": "b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127"
+        }
+}'):
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:53:in `rescue in parse_formatted_parameters'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:32:in `parse_formatted_parameters'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:23:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.1) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  rack (1.6.1) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.1) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.2ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (34.5ms)
+
+
+Started POST "/users/" for ::1 at 2015-05-10 09:49:01 +0530
+Processing by RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test00010@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "client_id"=>"b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127"}}
+  [1m[36mDoorkeeper::Application Load (2.3ms)[0m  [1mSELECT  `oauth_applications`.* FROM `oauth_applications` WHERE `oauth_applications`.`id` = 0 LIMIT 1[0m
+Completed 404 Not Found in 4ms
+
+ActiveRecord::RecordNotFound (Couldn't find Doorkeeper::Application with 'id'=b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127):
+  app/controllers/registrations_controller.rb:6:in `create'
+
+
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.1ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (32.1ms)
+
+
+Started POST "/users/" for ::1 at 2015-05-10 09:57:23 +0530
+Processing by RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test012213231001212212121@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[35mDoorkeeper::Application Load (0.3ms)[0m  SELECT `oauth_applications`.* FROM `oauth_applications` WHERE `oauth_applications`.`uid` IS NULL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (1.9ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test012213231001212212121@example.com' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+Completed 422 Unprocessable Entity in 82ms (Views: 0.2ms | ActiveRecord: 9.2ms)
+
+
+Started POST "/users/" for ::1 at 2015-05-10 09:58:16 +0530
+Processing by RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test00010@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "client_id"=>"b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127"}}
+  [1m[35mDoorkeeper::Application Load (0.3ms)[0m  SELECT `oauth_applications`.* FROM `oauth_applications` WHERE `oauth_applications`.`uid` = 'b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127'
+Unpermitted parameter: client_id
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test00010@example.com' LIMIT 1
+  [1m[36mSQL (4.0ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`) VALUES ('test00010@example.com', '$2a$10$9Tgu83JAsJfCc1v/3PkdNOU9XYm3g7Xt3nhisxRlMMTNpuPWvjJZu', '2015-05-10 04:28:16.164185', '2015-05-10 04:28:16.164185')[0m
+  [1m[35m (1.0ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mDoorkeeper::Application Load (0.2ms)[0m  SELECT  `oauth_applications`.* FROM `oauth_applications` WHERE `oauth_applications`.`id` = 1 LIMIT 1
+  [1m[36mDoorkeeper::AccessToken Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `oauth_access_tokens` WHERE `oauth_access_tokens`.`token` = BINARY 'a28fca49ab4495c63d6ae3734f9bc52dc83940318b4b9f079fe8950662dcadab' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `oauth_access_tokens` (`application_id`, `resource_owner_id`, `expires_in`, `token`, `created_at`) VALUES (1, 22, 604800, 'a28fca49ab4495c63d6ae3734f9bc52dc83940318b4b9f079fe8950662dcadab', '2015-05-10 04:28:16.182589')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 83ms (Views: 0.3ms | ActiveRecord: 9.5ms)
+
+
+Started POST "/users/" for ::1 at 2015-05-10 09:59:38 +0530
+Processing by RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test00010@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "client_id"=>"b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127"}}
+  [1m[35mDoorkeeper::Application Load (0.2ms)[0m  SELECT `oauth_applications`.* FROM `oauth_applications` WHERE `oauth_applications`.`uid` = 'b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127'
+Completed 500 Internal Server Error in 73ms
+
+ActiveRecord::UnknownAttributeError (unknown attribute 'client_id' for User.):
+  app/controllers/registrations_controller.rb:12:in `create'
+
+
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.7ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (33.1ms)
+
+
+Started POST "/users/" for ::1 at 2015-05-10 10:01:35 +0530
+Error occurred while parsing request parameters.
+Contents:
+
+{"user":{
+          "email":"test00010@example.com",
+          "password":"Test1232323",
+          "password_confirmation":"Test1232323"
+          
+        }
+ "client_id": "b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127"
+}
+
+ActionDispatch::ParamsParser::ParseError (795: unexpected token at '{"user":{
+          "email":"test00010@example.com",
+          "password":"Test1232323",
+          "password_confirmation":"Test1232323"
+          
+        }
+ "client_id": "b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127"
+}'):
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:53:in `rescue in parse_formatted_parameters'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:32:in `parse_formatted_parameters'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:23:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.1) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  rack (1.6.1) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.1) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.1ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (33.6ms)
+
+
+Started POST "/users/" for ::1 at 2015-05-10 10:01:42 +0530
+Error occurred while parsing request parameters.
+Contents:
+
+{"user":{
+          "email":"test00010@example.com",
+          "password":"Test1232323",
+          "password_confirmation":"Test1232323"
+          
+        }
+ "client_id": "b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127"
+}
+
+ActionDispatch::ParamsParser::ParseError (795: unexpected token at '{"user":{
+          "email":"test00010@example.com",
+          "password":"Test1232323",
+          "password_confirmation":"Test1232323"
+          
+        }
+ "client_id": "b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127"
+}'):
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:53:in `rescue in parse_formatted_parameters'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:32:in `parse_formatted_parameters'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:23:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.1) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  rack (1.6.1) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.1) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.3ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (32.3ms)
+
+
+Started POST "/users/" for ::1 at 2015-05-10 10:01:55 +0530
+Processing by RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test00010@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "client_id"=>"b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127"}
+  [1m[36mDoorkeeper::Application Load (0.3ms)[0m  [1mSELECT `oauth_applications`.* FROM `oauth_applications` WHERE `oauth_applications`.`uid` = 'b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127'[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test00010@example.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+Completed 422 Unprocessable Entity in 74ms (Views: 0.1ms | ActiveRecord: 2.8ms)
+
+
+Started POST "/users/" for ::1 at 2015-05-10 10:03:38 +0530
+Processing by RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test00010@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "client_id"=>"b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127"}
+  [1m[36mDoorkeeper::Application Load (0.2ms)[0m  [1mSELECT `oauth_applications`.* FROM `oauth_applications` WHERE `oauth_applications`.`uid` = 'b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127'[0m
+Completed 500 Internal Server Error in 2ms
+
+NoMethodError (undefined method `id' for #<Doorkeeper::Application::ActiveRecord_Relation:0x007fad072a0790>):
+  app/controllers/registrations_controller.rb:9:in `create'
+
+
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.3ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/navinnegi/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (31.9ms)
+
+
+Started POST "/users/" for ::1 at 2015-05-10 10:07:25 +0530
+Processing by RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test00010@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "client_id"=>"b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127"}
+  [1m[35mDoorkeeper::Application Load (0.3ms)[0m  SELECT  `oauth_applications`.* FROM `oauth_applications` WHERE `oauth_applications`.`uid` = 'b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127'  ORDER BY `oauth_applications`.`id` ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test00010@example.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+Completed 422 Unprocessable Entity in 77ms (Views: 0.2ms | ActiveRecord: 3.2ms)
+
+
+Started POST "/users/" for ::1 at 2015-05-10 10:07:45 +0530
+Processing by RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test000232310@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "client_id"=>"b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127"}
+  [1m[35mDoorkeeper::Application Load (0.3ms)[0m  SELECT  `oauth_applications`.* FROM `oauth_applications` WHERE `oauth_applications`.`uid` = 'b8d176e0c978396948729f67a7e8535e7b1e1637ac978692c3ab86f591570127'  ORDER BY `oauth_applications`.`id` ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test000232310@example.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`) VALUES ('test000232310@example.com', '$2a$10$UU90b0nGBddY1TVzyM85aub8qcnjsaNdnNCfKXr1gCF8xrYVwVTTS', '2015-05-10 04:37:45.830083', '2015-05-10 04:37:45.830083')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mDoorkeeper::Application Load (0.2ms)[0m  SELECT  `oauth_applications`.* FROM `oauth_applications` WHERE `oauth_applications`.`id` = 1 LIMIT 1
+  [1m[36mDoorkeeper::AccessToken Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `oauth_access_tokens` WHERE `oauth_access_tokens`.`token` = BINARY '38cb2946a4881d7269297ab104e02858db5f1b8a52bb6b7662e8fef33d235399' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `oauth_access_tokens` (`application_id`, `resource_owner_id`, `expires_in`, `token`, `created_at`) VALUES (1, 23, 604800, '38cb2946a4881d7269297ab104e02858db5f1b8a52bb6b7662e8fef33d235399', '2015-05-10 04:37:45.840079')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 75ms (Views: 0.3ms | ActiveRecord: 4.3ms)
